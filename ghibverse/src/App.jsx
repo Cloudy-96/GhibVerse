@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  // const [count, setCount] = useState(0)
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -12,13 +11,13 @@ function App() {
   }, []);
 
   // TODO: turn into a function when implementing a sort feature
-  movies.sort(function (a, b) {
-    return a.release_date - b.release_date;
-  });
+  // movies.sort(function (a, b) {
+  //   return a.release_date - b.release_date;
+  // });
 
-  // console.log("Sorted------", sortedMovies);
-  // movies.sort(movies.title);
-  // console.log("sorted", movies);
+  // const onclick =()=> {
+  //   console.log(movie.title)
+  // }
 
   return (
     <>
@@ -61,11 +60,11 @@ function App() {
                     <p>Producer: {movie.producer}</p>
                     <p>Released: {movie.release_date}</p>
                     <p>Rotton Tomatoes score: {movie.rt_score}%</p>
-                    <p>Run time: {movie.running_time}</p>
+                    <p>Run time: {movie.running_time} mins</p>
                   </div>
 
                   <div className="see-more">
-                    <a href="">See More</a>
+                    <button>See More</button>
                   </div>
                 </li>
               ))}
