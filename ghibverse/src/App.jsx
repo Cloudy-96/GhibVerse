@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import ReactModal from "react-modal";
 import "./App.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     fetch("https://ghibliapi.vercel.app/films")
@@ -14,10 +17,33 @@ function App() {
   // movies.sort(function (a, b) {
   //   return a.release_date - b.release_date;
   // });
+  function setOpenModal() {
+    setIsOpen(!modalIsOpen);
+    console.log("after setModalIsOpen:", modalIsOpen);
+  }
 
-  // const onclick =()=> {
-  //   console.log(movie.title)
-  // }
+  if (modalIsOpen) {
+    return (
+      <ReactModal>
+        <div className="modal-body">
+          {/* <section className="modal-header border-bottom">
+            <h2>Hello World</h2>
+            <p onClick={setOpenModal}>X</p>
+          </section> */}
+
+          <section className="modal-content">
+            <p>{movies[0].title}</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse
+              dolorem fuga iste est iusto iure eos sit, odio exercitationem.
+              Eligendi cum autem numquam quasi quidem non ducimus sed blanditiis
+              corporis.
+            </p>
+          </section>
+        </div>
+      </ReactModal>
+    );
+  }
 
   return (
     <>
@@ -64,7 +90,7 @@ function App() {
                   </div>
 
                   <div className="see-more">
-                    <button>See More</button>
+                    <button onClick={setOpenModal}>See More</button>
                   </div>
                 </li>
               ))}
