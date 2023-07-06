@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import ReactModal from "react-modal";
 import "./App.css";
+import Modal from "./components/movie-modal";
 
 function App() {
   const [movies, setMovies] = useState([]);
   // const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState([]);
 
   useEffect(() => {
     fetch("https://ghibliapi.vercel.app/films")
@@ -17,33 +18,16 @@ function App() {
   // movies.sort(function (a, b) {
   //   return a.release_date - b.release_date;
   // });
+
   function setOpenModal() {
     setIsOpen(!modalIsOpen);
     console.log("after setModalIsOpen:", modalIsOpen);
   }
 
-  if (modalIsOpen) {
-    return (
-      <ReactModal>
-        <div className="modal-body">
-          {/* <section className="modal-header border-bottom">
-            <h2>Hello World</h2>
-            <p onClick={setOpenModal}>X</p>
-          </section> */}
-
-          <section className="modal-content">
-            <p>{movies[0].title}</p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse
-              dolorem fuga iste est iusto iure eos sit, odio exercitationem.
-              Eligendi cum autem numquam quasi quidem non ducimus sed blanditiis
-              corporis.
-            </p>
-          </section>
-        </div>
-      </ReactModal>
-    );
-  }
+  // function handleSeeMore() {
+  //   setOpenModal();
+  //   setCurrentMovie();
+  // }
 
   return (
     <>
@@ -63,6 +47,16 @@ function App() {
 
         <main>
           <h2>Movies</h2>
+          {modalIsOpen && (
+            <Modal
+              movies={movies}
+              setOpenModal={setOpenModal}
+              modalIsOpen={modalIsOpen}
+              selectedMovie={selectedMovie}
+              // setSelectedMovie={setSelectedMovie}
+            />
+          )}
+
           <div className="">
             <ul>
               {movies.map((movie) => (
@@ -90,7 +84,18 @@ function App() {
                   </div>
 
                   <div className="see-more">
-                    <button onClick={setOpenModal}>See More</button>
+                    <button
+                      id={`button${movie.id}`}
+                      onClick={() => {
+                        setOpenModal();
+                        // console.log("movie:", movie);
+
+                        setSelectedMovie(movie);
+                        console.log("selectedMovie:", selectedMovie);
+                      }}
+                    >
+                      See More
+                    </button>
                   </div>
                 </li>
               ))}

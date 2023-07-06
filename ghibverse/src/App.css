@@ -23,13 +23,20 @@
   grid-area: middle;
 }
 
-.card-img{
+.card-img {
   grid-area: left;
 }
 
-.see-more{
+.see-more {
   grid-area: right;
 }
+
 .read-the-docs {
   color: #888;
+}
+
+main {
+  display: grid;
+  /* justify-content: center; */
+  
 }

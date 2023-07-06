@@ -1,0 +1,15 @@
+.modal-body {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.361) 0px 5px 15px;
+    border: #888 solid 2px;
+    z-index: 1;
+    background-color: pink;
+    justify-self: center;
+    align-content: center;
+}
