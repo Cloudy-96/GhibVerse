@@ -13,3 +13,7 @@
     justify-self: center;
     align-content: center;
 }
+
+.closeBtn {
+    align-self: right;
+}

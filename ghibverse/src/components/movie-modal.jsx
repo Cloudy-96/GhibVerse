@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./modal.css";
 import { useState, useEffect } from "react";
 
@@ -19,9 +20,9 @@ const Modal = ({ movies, setOpenModal, modalIsOpen, selectedMovie }) => {
 
   return (
     <div className="modal-body">
-      <section className="flex modal-header border-bottom">
+      <section className="flex gap-40 modal-header border-bottom">
         <h2>{selectedMovie.title}</h2>
-        <button className="bg-red-200" onClick={setOpenModal}>
+        <button className="closeBtn bg-red-700 w-32 h-30" onClick={setOpenModal}>
           X
         </button>
       </section>

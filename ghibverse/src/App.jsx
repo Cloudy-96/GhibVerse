@@ -4,7 +4,6 @@ import Modal from "./components/movie-modal";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState([]);
 
@@ -23,11 +22,6 @@ function App() {
     setIsOpen(!modalIsOpen);
     console.log("after setModalIsOpen:", modalIsOpen);
   }
-
-  // function handleSeeMore() {
-  //   setOpenModal();
-  //   setCurrentMovie();
-  // }
 
   return (
     <>
@@ -88,8 +82,6 @@ function App() {
                       id={`button${movie.id}`}
                       onClick={() => {
                         setOpenModal();
-                        // console.log("movie:", movie);
-
                         setSelectedMovie(movie);
                         console.log("selectedMovie:", selectedMovie);
                       }}
