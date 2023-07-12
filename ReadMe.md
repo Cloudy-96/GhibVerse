@@ -6,6 +6,7 @@ A place which gathers and repackages information about all of the studio Ghibili
 
 - sort movies alphabetically, by popularity, date, or runtime
 - click on a movie to see more information about it
+- search for specific people, locations, species, and vehicles featured in the movies and the information available about them.
 
 ## Work in progress
 
@@ -23,7 +24,8 @@ and their relation to the films they feature in.
 
 ## Attributions
 
- <!-- Icon: <a href='https://pngtree.com/so/Cute'>Cute png from pngtree.com/</a> -->
+ Icon:  href=`https://pngtree.com/so/Cute` --> Cute png from pngtree.com/
 
-original API documentation: <https://ghibliapi.vercel.app/#tag/Films%2Fpaths%2F~1films%2Fget>
+original API documentation:
+<https://ghibliapi.vercel.app/#tag/Films%2Fpaths%2F~1films%2Fget>
 <https://ghibliapi.vercel.app/>
